@@ -2,6 +2,9 @@
 data/*
 runs/*
 
+!data/titanic.csv
+!runs/example_run/example_config.json
+
 
 
 # Byte-compiled / optimized / DLL files

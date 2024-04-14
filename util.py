@@ -190,5 +190,6 @@ def get_lgbm_optimized_params(
 
         # save study
         joblib.dump(study, f"{save_dir}/study_{i}_{group}_best_score_{study.best_value}.pkl")
-
+    
+    print('optimization complete')
     return best_params, study.best_value
