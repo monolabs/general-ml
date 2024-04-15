@@ -96,11 +96,12 @@ def preprocess(
     df_[ordinal_columns] = encoder.transform(df[ordinal_columns])
     #feature engineering for date columns - hour, day of week, day, month
     for c in date_columns:
-        df_[f"{c}_hod"] = df[c].dt.hour
-        df_[f"{c}_dow"] = df[c].dt.weekday
-        df_[f"{c}_day"] = df[c].dt.day
-        df_[f"{c}_month"] = df[c].dt.month
-        df_[f"{c}_year"] = df[c].dt.year
+        date = pd.to_datetime(df[c])
+        df_[f"{c}_hod"] = date.dt.hour
+        df_[f"{c}_dow"] = date.dt.weekday
+        df_[f"{c}_day"] = date.dt.day
+        df_[f"{c}_month"] = date.dt.month
+        df_[f"{c}_year"] = date.dt.year
 
     return df_, df[target_column]
 
