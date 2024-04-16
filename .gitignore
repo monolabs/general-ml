@@ -1,10 +1,14 @@
 # optimization runs and data
 data/*
-runs/*
 
 !data/titanic.csv
 !data/dummy_train.csv
 !data/dummy_test.csv
+
+runs/*
+!runs
+!runs/example_run
+runs/example_run/*
 !runs/example_run/example_config.json
 
 

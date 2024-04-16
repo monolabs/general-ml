@@ -1,0 +1,45 @@
+{
+    
+    "continuous_columns": ["age", "surgery_complexity"],
+    "ordinal_columns": [
+        "categorical_1", 
+        "categorical_2",
+        "categorical_3",
+        "categorical_4",
+        "categorical_5",
+        "categorical_6",
+        "categorical_7",
+        "categorical_8",
+        "categorical_9",
+        "categorical_10",
+        "categorical_11",
+        "categorical_12",
+        "gender", 
+        "race", 
+        "marital_status", 
+        "specialties"
+    ],
+    "date_columns": ["scheduled_date"],
+    "target_column":"is_cancelled",
+    
+    "hyperparams_stepwise_groups": [
+        ["learning_rate"],
+        ["lambda_l1"], 
+        ["lambda_l2"], 
+        ["num_leaves"], 
+        ["feature_fraction"], 
+        ["bagging_fraction"], 
+        ["bagging_freq"],
+        ["min_child_samples"]
+    ],
+
+    "fixed_params": {
+        "verbosity": -1,
+        "objective": "binary",
+        "is_unbalance": true,
+        "n_estimators": 100
+    },
+
+    "n_trials": 100,
+    "random_state": 0
+}
