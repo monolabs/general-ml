@@ -3,6 +3,8 @@ data/*
 runs/*
 
 !data/titanic.csv
+!data/dummy_train.csv
+!data/dummy_test.csv
 !runs/example_run/example_config.json
 
 

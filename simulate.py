@@ -1,12 +1,5 @@
 import pandas as pd
 import numpy as np
-import lightgbm as lgbm
-import scipy
-from sklearn.preprocessing import OrdinalEncoder
-from sklearn.metrics import roc_auc_score
-from sklearn.model_selection import StratifiedKFold
-import matplotlib.pyplot as plt
-import optuna
 
 
 def simulate_surgeries(n):
@@ -17,6 +10,7 @@ def simulate_surgeries(n):
     age = np.floor(np.random.normal(50, 15, n))
     age = np.clip(age, 10, 100)
     df['age'] = age
+    df['age'] = df['age'].astype(int)
 
     # gender - uniform
     df['gender'] = np.random.choice(['m', 'f'], n)
@@ -56,6 +50,16 @@ def simulate_surgeries(n):
     start = pd.to_datetime('2021-01-01')
     end = pd.to_datetime('2023-12-31')
     df['scheduled_date'] = random_dates(start, end, n)
+
+    # Other categorical features
+    n_cat_features = 12
+    n_cats = 5
+    for i in range(1, n_cat_features+1):
+        cats = [chr(x) for x in range(65, 65 + n_cats)]
+        df[f"categorical_{i}"] = np.random.choice(cats, n)
+
+
+    # CANCELLATION PROBABILITY
 
     # formulating probability of cancellation - individual contribution is between 0-1
     df_prob = pd.DataFrame()
