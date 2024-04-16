@@ -149,7 +149,7 @@ def get_lgbm_optimized_params(
     # TRAINING LOOP
     spec = {
         'n_estimators': {'type': 'int', 'lb': 50, 'ub': 1000, 'log': False, 'default': 100},
-        'learning_rate': {'type': 'float', 'lb': 0.001, 'ub': 1.0, 'log': True, 'default': 0.1},
+        'learning_rate': {'type': 'float', 'lb': 0.01, 'ub': 1.0, 'log': True, 'default': 0.1},
         'lambda_l1': {'type': 'float', 'lb': 1e-8, 'ub': 10.0, 'log': True, 'default': 1e-8},
         'lambda_l2': {'type': 'float', 'lb': 1e-8, 'ub': 10.0, 'log': True, 'default': 1e-8},
         'num_leaves': {'type': 'int', 'lb': 2**3, 'ub': 2**8, 'log': False, 'default': 31},
